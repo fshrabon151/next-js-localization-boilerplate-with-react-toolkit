@@ -1,0 +1,20 @@
+{
+  "common": {
+    "home": "الرئيسية",
+    "about": "حول",
+    "contact": "اتصل بنا",
+    "language": "اللغة"
+  },
+  "home": {
+    "title": "مرحباً بك في Next.js 14",
+    "description": "تطبيق ويب حديث مع دعم تعدد اللغات وإدارة الحالة",
+    "counter": "مثال العداد"
+  },
+  "counter": {
+    "title": "عداد Redux",
+    "increment": "زيادة",
+    "decrement": "نقصان",
+    "reset": "إعادة تعيين",
+    "value": "القيمة الحالية: {count}"
+  }
+}

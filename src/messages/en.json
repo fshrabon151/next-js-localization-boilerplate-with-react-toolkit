@@ -1,0 +1,20 @@
+{
+  "common": {
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact",
+    "language": "Language"
+  },
+  "home": {
+    "title": "Welcome to Next.js 14",
+    "description": "A modern web application with internationalization and state management",
+    "counter": "Counter Example"
+  },
+  "counter": {
+    "title": "Redux Counter",
+    "increment": "Increment",
+    "decrement": "Decrement",
+    "reset": "Reset",
+    "value": "Current value: {count}"
+  }
+}

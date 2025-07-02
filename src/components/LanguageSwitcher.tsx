@@ -1,0 +1,33 @@
+"use client";
+import { localeNames, locales } from "@/lib/i18n/config";
+import { useTranslations } from "next-intl";
+import { useParams, usePathname, useRouter } from "next/navigation";
+
+export default function LanguageSwitcher() {
+  const router = useRouter();
+  const pathname = usePathname();
+  const params = useParams();
+  const t = useTranslations("common");
+  const currentLocale = params.locale as string;
+
+  const switchLanguage = (newLocale: string) => {
+    const newPathname = pathname.replace(`/${currentLocale}`, `/${newLocale}`);
+    router.push(newPathname);
+  };
+
+  return (
+    <div className="relative">
+      <select
+        value={currentLocale}
+        onChange={(e) => switchLanguage(e.target.value)}
+        className="bg-blue-700 border border-blue-500 text-white rounded px-3 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300"
+      >
+        {locales.map((locale) => (
+          <option key={locale} value={locale}>
+            {localeNames[locale]}
+          </option>
+        ))}
+      </select>
+    </div>
+  );
+}
