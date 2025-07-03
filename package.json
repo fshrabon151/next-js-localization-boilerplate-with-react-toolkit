@@ -2,7 +2,8 @@
   "name": "next-boilerplate",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
+ "packageManager": "pnpm@9.0.6",
+   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
