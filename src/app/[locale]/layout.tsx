@@ -25,7 +25,7 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} dir={direction}>
-      <body className="min-h-screen bg-white dark:bg-gray-900">
+      <body className="min-h-screen bg-white">
         <NextIntlClientProvider messages={messages}>
           <StoreProvider>
             <Navigation />
