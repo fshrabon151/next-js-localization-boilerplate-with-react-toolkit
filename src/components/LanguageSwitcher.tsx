@@ -1,4 +1,5 @@
 "use client";
+
 import { localeNames, locales } from "@/lib/i18n/config";
 import { useTranslations } from "next-intl";
 import { useParams, usePathname, useRouter } from "next/navigation";
@@ -20,7 +21,7 @@ export default function LanguageSwitcher() {
       <select
         value={currentLocale}
         onChange={(e) => switchLanguage(e.target.value)}
-        className="bg-blue-700 border border-blue-500 text-white rounded px-3 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300"
+        className="bg-white border border-gray-300 text-gray-800 rounded-md px-3 py-2 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
       >
         {locales.map((locale) => (
           <option key={locale} value={locale}>

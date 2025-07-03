@@ -1,4 +1,5 @@
 "use client";
+
 import { RootState } from "@/lib/store";
 import { decrement, increment, reset } from "@/lib/store/counterSlice";
 import { useTranslations } from "next-intl";
@@ -10,35 +11,33 @@ export default function Counter() {
   const t = useTranslations("counter");
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 max-w-md mx-auto">
-      <h2 className="text-2xl font-bold text-center mb-4 text-gray-800 dark:text-white">
+    <div className="bg-white border border-gray-200 rounded-xl shadow-sm p-6 max-w-md mx-auto mt-6">
+      <h2 className="text-2xl font-semibold text-center text-blue-600 mb-4">
         {t("title")}
       </h2>
 
       <div className="text-center mb-6">
-        <p className="text-lg text-gray-600 dark:text-gray-300">
-          {t("value", { count })}
-        </p>
+        <p className="text-lg text-gray-700">{t("value", { count })}</p>
       </div>
 
-      <div className="flex justify-center space-x-4 rtl:space-x-reverse">
+      <div className="flex justify-center gap-3 rtl:flex-row-reverse">
         <button
           onClick={() => dispatch(decrement())}
-          className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md font-medium transition-colors"
+          className="bg-red-100 text-red-600 hover:bg-red-200 px-4 py-2 rounded-lg font-medium transition"
         >
           {t("decrement")}
         </button>
 
         <button
           onClick={() => dispatch(reset())}
-          className="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-md font-medium transition-colors"
+          className="bg-gray-100 text-gray-700 hover:bg-gray-200 px-4 py-2 rounded-lg font-medium transition"
         >
           {t("reset")}
         </button>
 
         <button
           onClick={() => dispatch(increment())}
-          className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md font-medium transition-colors"
+          className="bg-green-100 text-green-600 hover:bg-green-200 px-4 py-2 rounded-lg font-medium transition"
         >
           {t("increment")}
         </button>
