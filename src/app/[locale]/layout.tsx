@@ -3,7 +3,6 @@ import { localeDirections, locales } from "@/lib/i18n/config";
 import StoreProvider from "@/lib/store/StoreProvider";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
-import "./globals.css";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
