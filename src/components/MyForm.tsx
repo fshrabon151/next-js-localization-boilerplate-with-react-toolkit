@@ -1,7 +1,7 @@
 "use client";
+import { FormikCheckbox } from "@/components/formik-components/FormikCheckbox";
 import { FormikRadioGroup } from "@/components/formik-components/FormikRadioGroup";
 import { FormikSelect } from "@/components/formik-components/FormikSelect";
-import { FormikSwitch } from "@/components/formik-components/FormikSwitch";
 import { FormikText } from "@/components/formik-components/FormikText";
 import { FormikTextarea } from "@/components/formik-components/FormikTextarea";
 import { Form, FormikProvider, useFormik } from "formik";
@@ -68,7 +68,11 @@ export const MyForm: React.FC = () => {
             ]}
             required
           />
-          <FormikSwitch name="subscribe" label="Subscribe to newsletter" />
+          <FormikCheckbox
+            name="subscribe"
+            label="Subscribe to newsletter"
+            required
+          />
           <Button type="submit" disabled={formik.isSubmitting}>
             Submit
           </Button>
