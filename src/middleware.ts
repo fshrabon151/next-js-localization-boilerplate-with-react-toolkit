@@ -1,10 +1,10 @@
 // middleware.ts
 import createMiddleware from "next-intl/middleware";
-import { locales } from "../src/lib/i18n/config";
+import { defaultLocale, locales } from "../src/i18n/config";
 
 export default createMiddleware({
   locales,
-  defaultLocale: "en", // Must match next.config.js
+  defaultLocale, // Must match next.config.js
 });
 
 export const config = {

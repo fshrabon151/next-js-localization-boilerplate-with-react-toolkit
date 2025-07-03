@@ -1,7 +1,7 @@
 "use client";
 
-import { RootState } from "@/lib/store";
-import { decrement, increment, reset } from "@/lib/store/counterSlice";
+import { RootState } from "@/store";
+import { decrement, increment, reset } from "@/store/counterSlice";
 import { useTranslations } from "next-intl";
 import { useDispatch, useSelector } from "react-redux";
 

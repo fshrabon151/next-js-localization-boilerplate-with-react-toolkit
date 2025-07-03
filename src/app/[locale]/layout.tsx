@@ -1,6 +1,6 @@
 import Navigation from "@/components/Navigation";
-import { localeDirections, locales } from "@/lib/i18n/config";
-import StoreProvider from "@/lib/store/StoreProvider";
+import { localeDirections, locales } from "@/i18n/config";
+import StoreProvider from "@/store/StoreProvider";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 
