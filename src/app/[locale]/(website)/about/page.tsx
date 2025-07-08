@@ -1,5 +1,5 @@
 "use client";
-import LanguageSwitcher from "@/components/common/atoms/LanguageSwitcher";
+import LanguageToggler from "@/components/LanguageToggler";
 import { Typography } from "@/components/common/atoms/Typography";
 import { Column, Table } from "@/components/common/molecules/Table";
 import { useTranslations } from "next-intl";
@@ -131,7 +131,7 @@ export default function AboutPage() {
             emptyText="No users found."
           />
         </div>
-        <LanguageSwitcher />
+        <LanguageToggler />
       </section>
     </div>
   );

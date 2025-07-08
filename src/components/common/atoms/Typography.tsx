@@ -31,12 +31,17 @@ const typographyVariants = cva("", {
       div: "div",
     },
     color: {
-      default: "",
+      default: "text-brandRichBlack",
       primary: "text-primary",
       secondary: "text-secondary",
       muted: "text-muted-foreground",
       destructive: "text-destructive",
       accent: "text-accent-foreground",
+      // here this used
+      white: "text-white",
+      blueGrayLight: "text-[#BED3FF]",
+      brandEgyptianBlue: "text-brandEgyptianBlue",
+      brandRichBlack80: "text-brandRichBlack-80",
     },
     align: {
       left: "text-left",
@@ -69,7 +74,8 @@ const Typography = React.forwardRef<HTMLElement, TypographyProps>(
     return (
       <Comp
         className={cn(
-          typographyVariants({ variant, as, color, align, className })
+          typographyVariants({ variant, as, color, align }),
+          className
         )}
         ref={ref as any}
         {...props}

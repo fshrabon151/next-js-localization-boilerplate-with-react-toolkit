@@ -1,3 +1,4 @@
+import { FontWrapper } from "@/components/FontWrapper";
 import Navigation from "@/components/Navigation";
 import { localeDirections, locales } from "@/i18n/config";
 import StoreProvider from "@/store/StoreProvider";
@@ -24,12 +25,15 @@ export default async function LocaleLayout({
   const direction = localeDirections[locale as keyof typeof localeDirections];
 
   return (
-    <html lang={locale} dir={direction}>
-      <body className="min-h-screen bg-white">
+    <html lang={locale} dir={direction} className="bg-[#FBFCFE]">
+      <body className="min-h-screen">
         <NextIntlClientProvider messages={messages}>
           <StoreProvider>
-            <Navigation />
-            <main className="container mx-auto px-4 py-8">{children}</main>
+            <FontWrapper>
+              <Navigation />
+              <main className="pt-[72px]">{children}</main>
+              <div className="h-screen bg-slate-50"></div>
+            </FontWrapper>
           </StoreProvider>
         </NextIntlClientProvider>
       </body>
