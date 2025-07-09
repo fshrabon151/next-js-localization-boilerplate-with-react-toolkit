@@ -35,12 +35,12 @@ const BankLogosGrid: React.FC<BankLogosGridProps> = ({ logos }) => {
   if (columns === null) {
     return (
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-0">
-        {Array.from({ length: 12 }).map((_, index) => (
+        {logos.map((_, index) => (
           <div
             key={index}
-            className="h-24 flex items-center justify-center bg-gray-100 animate-pulse relative overflow-hidden"
+            className="h-24 flex items-center justify-center border bg-brandBlue-light  animate-pulse relative overflow-hidden"
           >
-            <div className="w-[100px] h-[50px] bg-gray-300 rounded-sm" />
+            <div className="w-[100px] h-[50px] bg-brandBlue-20 rounded-sm animate-pulse" />
           </div>
         ))}
       </div>

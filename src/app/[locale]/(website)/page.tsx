@@ -20,6 +20,7 @@ import { Typography } from "@/components/common/atoms/Typography";
 import { SectionWrapper } from "@/components/common/SectionWrapper";
 import InfoCard, { InfoCardProps } from "@/components/InfoCard";
 import InfoImageCard from "@/components/InfoImageCard";
+import { ResponsiveAccordion } from "@/components/ResponsiveAccordion";
 import { Button } from "@/components/ui/button";
 import AppleStoreIcon from "@/svgs/AppleStoreIcon";
 import AutoLeaseFinance from "@/svgs/AutoLeaseFinance";
@@ -340,6 +341,52 @@ const page = () => {
               { name: "Al Rajhi Bank", src: alimna.src },
             ]}
           />
+        </SectionWrapper>
+      </div>
+      <div className="container pt-20">
+        <SectionWrapper
+          heading="FAQ"
+          title="Frequently Asked Questions"
+          subTitle="We work with leading financial institutions across the Kingdom to bring you reliable loan options you can trust."
+          className="max-w-3xl"
+        >
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <ResponsiveAccordion
+              items={[
+                {
+                  title: "How do I apply?",
+                  description:
+                    "Once your information is verified, eligible offers will be displayed on your dashboard—usually within a few minutes of completing the process.",
+                },
+                {
+                  title: "When will I get a response?",
+                  description:
+                    "Once your information is verified, eligible offers will be displayed on your dashboard—usually within a few minutes of completing the process.",
+                },
+                {
+                  title: "How do I track my application status?",
+                  description:
+                    "Once your information is verified, eligible offers will be displayed on your dashboard—usually within a few minutes of completing the process.",
+                },
+                {
+                  title:
+                    "What does it mean if an offer says “More info needed?",
+                  description:
+                    "Once your information is verified, eligible offers will be displayed on your dashboard—usually within a few minutes of completing the process.",
+                },
+                {
+                  title: "How do I sign the contract?",
+                  description:
+                    "Once your information is verified, eligible offers will be displayed on your dashboard—usually within a few minutes of completing the process.",
+                },
+                {
+                  title: "I’m facing issues with the app.",
+                  description:
+                    "Once your information is verified, eligible offers will be displayed on your dashboard—usually within a few minutes of completing the process.",
+                },
+              ]}
+            />
+          </div>
         </SectionWrapper>
       </div>
     </div>
