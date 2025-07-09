@@ -4,18 +4,20 @@ import { Typography } from "./atoms/Typography";
 
 interface SectionWrapperProps {
   title: string;
-  subtitle: string;
+  subTitle: string;
   heading: string;
   className?: string;
   children: ReactNode;
+  subTitleClassName?: string;
 }
 
 export const SectionWrapper: React.FC<SectionWrapperProps> = ({
   title,
-  subtitle,
+  subTitle,
   heading,
   className,
   children,
+  subTitleClassName,
 }) => {
   return (
     <div className="space-y-12">
@@ -25,15 +27,19 @@ export const SectionWrapper: React.FC<SectionWrapperProps> = ({
             {heading}
           </div>
         </div>
-        <div className="space-y-6">
-          <Typography align="center" variant="h1">
+        <div className="space-y-5">
+          <Typography
+            align="center"
+            as="h1"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-[48px] font-bold"
+          >
             {title}
           </Typography>
           <Typography
             align="center"
-            className="font-normal text-xl md:text-2xl"
+            className={cn("font-normal text-xl md:text-2xl", subTitleClassName)}
           >
-            {subtitle}
+            {subTitle}
           </Typography>
         </div>
       </div>

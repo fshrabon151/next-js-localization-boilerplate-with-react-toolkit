@@ -6,13 +6,18 @@ import * as React from "react";
 const typographyVariants = cva("", {
   variants: {
     variant: {
+      headingHero:
+        "uppercase text-[46px] sm:text-[58px] md:text-[64px] xl:text-[82px] font-bold tracking-tight leading-[1.2]",
+      paragraphHero: "text-lg sm:text-xl md:text-2xl lg:text-[28px] max-w-md",
+
+      //
       h1: "text-4xl lg:text-5xl font-extrabold tracking-tight",
       h2: "text-3xl lg:text-4xl font-semibold tracking-tight",
       h3: "text-2xl lg:text-3xl font-semibold tracking-tight",
       h4: "text-xl font-semibold tracking-tight",
       h5: "text-lg font-semibold tracking-tight",
       h6: "text-base font-medium tracking-tight",
-      subtitle: "text-base font-medium text-muted-foreground",
+      subTitle: "text-base font-medium text-muted-foreground",
       subheading: "text-sm font-medium text-muted-foreground",
       paragraph: "text-base leading-relaxed",
       small: "text-sm text-muted-foreground",
@@ -31,13 +36,13 @@ const typographyVariants = cva("", {
       div: "div",
     },
     color: {
-      default: "text-brandRichBlack",
       primary: "text-primary",
       secondary: "text-secondary",
       muted: "text-muted-foreground",
       destructive: "text-destructive",
       accent: "text-accent-foreground",
       // here this used
+      default: "text-brandRichBlack",
       white: "text-white",
       blueGrayLight: "text-[#BED3FF]",
       brandEgyptianBlue: "text-brandEgyptianBlue",

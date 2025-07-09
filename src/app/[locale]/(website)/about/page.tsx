@@ -36,7 +36,7 @@ export default function AboutPage() {
           {t("about")}
         </Typography>
         <Typography
-          variant="subtitle"
+          variant="subTitle"
           className="mt-2 text-xl text-muted-foreground"
         >
           This is the about page with internationalization support.
@@ -55,7 +55,7 @@ export default function AboutPage() {
         </div>
 
         <div className="space-y-3">
-          <Typography variant="subtitle">This is a subtitle</Typography>
+          <Typography variant="subTitle">This is a subTitle</Typography>
           <Typography variant="paragraph">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed
             feugiat nisl. Integer vel nisi non urna posuere.

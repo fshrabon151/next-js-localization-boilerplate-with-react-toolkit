@@ -1,8 +1,21 @@
 import AcceptOffersFromMultipleLenders from "@/assets/home/AcceptOffersFromMultipleLenders.png";
 import bankApproval from "@/assets/home/bankApproval.png";
+import aiyusur from "@/assets/home/banks/aiyusur.png";
+import alimna from "@/assets/home/banks/alimna.png";
+import alrajhiBank from "@/assets/home/banks/alrajhiBank.png";
+import arabNationalBank from "@/assets/home/banks/arabNationalBank.png";
+import bankAlBibad from "@/assets/home/banks/bankAlBibad.png";
+import bsf from "@/assets/home/banks/bsf.png";
+import emkun from "@/assets/home/banks/emkun.png";
+import riyadBank from "@/assets/home/banks/riyadBank.png";
+import saudiNationalBank from "@/assets/home/banks/saudiNationalBank.png";
+import sulfa from "@/assets/home/banks/sulfa.png";
+import tamam from "@/assets/home/banks/tamam.png";
+import tasheelFinance from "@/assets/home/banks/tasheelFinance.png";
 import habibiKUluKulu from "@/assets/home/habibiKUluKulu.png";
 import heroMobileInHand from "@/assets/home/hero-mobile-in-hand.png";
 import iPhone16Pro from "@/assets/home/iPhone-16-Pro.png";
+import BankLogosGrid from "@/components/BankLogosGrid";
 import { Typography } from "@/components/common/atoms/Typography";
 import { SectionWrapper } from "@/components/common/SectionWrapper";
 import InfoCard, { InfoCardProps } from "@/components/InfoCard";
@@ -186,52 +199,52 @@ const page = () => {
     <div className="space-y-8">
       <div className="container">
         <div className="space-y-8 pt-16 relative overflow-hidden">
-          <Typography
-            as="h1"
-            className="uppercase text-[46px] sm:text-[58px] md:text-[64px] xl:text-[82px] font-bold tracking-tight leading-[1.2]"
-          >
+          <Typography variant="headingHero">
             Find the <br /> right financing <br /> fast and easy.
           </Typography>
 
           <div className="bg-[linear-gradient(269.83deg,_#6598FE_1.23%,_#0054FD_99.87%)] rounded-3xl space-y-8 relative pt-8">
-            <div className="grid md:grid-cols-2 items-center gap-8 ">
+            <div className="grid md:grid-cols-2 items-center gap-8">
               <div className="space-y-8">
                 <div className="space-y-8 px-8">
-                  <Typography
-                    color={"white"}
-                    className="text-lg sm:text-xl md:text-2xl lg:text-[28px] max-w-md"
-                  >
+                  <Typography variant="paragraphHero" color="white">
                     Access real-time financing offers tailored to your needs.
                     From the comfort of your home.
                   </Typography>
-                  <Button size={"lg"} variant={"outline"}>
+                  <Button size="lg" variant="outline">
                     Apply for Finance
                   </Button>
                 </div>
 
                 <div className="flex items-center gap-4 px-8 xl:pb-8">
-                  <Typography color={"blueGrayLight"} className="capitalize">
+                  <Typography color="blueGrayLight" className="capitalize">
                     Get the <br />
                     Mobile App
                   </Typography>
                   <AppleStoreIcon />
                   <PlayStoreIcon />
                 </div>
+
+                {/* Lazy loaded image - XL screens only */}
                 <Image
                   src={heroMobileInHand.src}
                   alt="Hero Mobile in hand"
                   width={1000}
                   height={1000}
+                  loading="lazy"
                   className="hidden xl:block xl:absolute xl:bottom-0 xl:right-0 xl:z-0 w-full object-cover max-w-xl xl:max-w-md xl:rounded-3xl"
                 />
               </div>
+
               <div className="flex justify-end">
+                {/* Lazy loaded image - mobile/tablet screens */}
                 <Image
                   src={heroMobileInHand.src}
                   alt="Hero Mobile in hand"
                   width={1000}
                   height={1000}
-                  className=" block sm:hidden md:block xl:hidden max-w-xs rounded-3xl w-full object-cover"
+                  loading="lazy"
+                  className="block sm:hidden md:block xl:hidden max-w-xs rounded-3xl w-full object-cover"
                 />
               </div>
             </div>
@@ -250,7 +263,7 @@ const page = () => {
         <SectionWrapper
           heading="How It Works"
           title="Your Loan Journey, Simplified"
-          subtitle="See how quick and simple it is to apply for financing, compare offers, and get approved — all in one place."
+          subTitle="See how quick and simple it is to apply for financing, compare offers, and get approved — all in one place."
           className="max-w-2xl"
         >
           <div className="space-y-5">
@@ -294,7 +307,7 @@ const page = () => {
         <SectionWrapper
           heading="Why Choose Us?"
           title="One platform. Multiple offers. Total control."
-          subtitle="We simplify the loan process so you can apply with confidence, compare real offers from trusted banks, and move forward knowing you're in control — every step of the way."
+          subTitle="We simplify the loan process so you can apply with confidence, compare real offers from trusted banks, and move forward knowing you're in control — every step of the way."
           className="max-w-5xl"
         >
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -302,6 +315,31 @@ const page = () => {
               <InfoCard {...item} key={index} minimal />
             ))}
           </div>
+        </SectionWrapper>
+      </div>
+      <div className="container pt-20">
+        <SectionWrapper
+          heading="Our Financial Partners"
+          title="Backed by Saudi Arabia’s Trusted Finance Institutes"
+          subTitle="We work with leading financial institutions across the Kingdom to bring you reliable loan options you can trust."
+          subTitleClassName="max-w-4xl mx-auto"
+        >
+          <BankLogosGrid
+            logos={[
+              { name: "Al Rajhi Bank", src: alrajhiBank.src },
+              { name: "Al Rajhi Bank", src: saudiNationalBank.src },
+              { name: "Al Rajhi Bank", src: riyadBank.src },
+              { name: "Al Rajhi Bank", src: bsf.src },
+              { name: "Al Rajhi Bank", src: arabNationalBank.src },
+              { name: "Al Rajhi Bank", src: bankAlBibad.src },
+              { name: "Al Rajhi Bank", src: tasheelFinance.src },
+              { name: "Al Rajhi Bank", src: aiyusur.src },
+              { name: "Al Rajhi Bank", src: emkun.src },
+              { name: "Al Rajhi Bank", src: tamam.src },
+              { name: "Al Rajhi Bank", src: sulfa.src },
+              { name: "Al Rajhi Bank", src: alimna.src },
+            ]}
+          />
         </SectionWrapper>
       </div>
     </div>
