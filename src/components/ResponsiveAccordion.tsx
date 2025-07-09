@@ -64,13 +64,13 @@ export const ResponsiveAccordion: React.FC<AccordionProps> = ({ items }) => {
 
           {/* Description */}
           <div
-            index={`desc-${index}`}
+            key={`desc-${index}`}
             className={`
               px-4 pt-2 pb-4 text-gray-700 text-base
               overflow-hidden transition-all duration-300 ease-in-out
               ${openId === index ? "max-h-96" : "max-h-0"}
 
-              md:px-0 md:pt-4 md:pb-0 md:max-h-full
+              md:px-0 md:pt-2 md:pb-0 md:max-h-full
               md:block
               ${openId === index ? "" : "hidden md:block"}
             `}

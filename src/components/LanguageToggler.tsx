@@ -39,7 +39,8 @@ export default function LanguageToggler() {
         <div
           className={cn(
             "w-1/2 flex items-center justify-center transition-colors duration-300",
-            lang === "en" ? "text-white" : "text-brandBlue"
+            lang === "en" ? "text-white" : "text-brandBlue",
+            "font-satoshi"
           )}
         >
           English
@@ -47,7 +48,8 @@ export default function LanguageToggler() {
         <div
           className={cn(
             "w-1/2 flex items-center justify-center transition-colors duration-300",
-            lang === "ar" ? "text-white" : "text-brandBlue"
+            lang === "ar" ? "text-white" : "text-brandBlue",
+            "font-avenir-arabic"
           )}
         >
           العربية

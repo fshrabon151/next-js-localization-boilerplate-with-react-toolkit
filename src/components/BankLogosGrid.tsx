@@ -15,35 +15,28 @@ interface BankLogosGridProps {
 const BankLogosGrid: React.FC<BankLogosGridProps> = ({ logos }) => {
   const [columns, setColumns] = useState<number | null>(null);
   const [direction, setDirection] = useState<"ltr" | "rtl">("ltr");
+  const [isMobile, setIsMobile] = useState<boolean>(false);
 
   useEffect(() => {
-    const updateColumns = () => {
+    const updateLayout = () => {
       const width = window.innerWidth;
       if (width >= 1024) setColumns(6);
       else if (width >= 768) setColumns(4);
       else if (width >= 640) setColumns(3);
       else setColumns(2);
+
+      setIsMobile(width < 640);
+      setDirection(document?.dir === "rtl" ? "rtl" : "ltr");
     };
 
-    updateColumns();
-    setDirection(document?.dir === "rtl" ? "rtl" : "ltr");
-
-    window.addEventListener("resize", updateColumns);
-    return () => window.removeEventListener("resize", updateColumns);
+    updateLayout();
+    window.addEventListener("resize", updateLayout);
+    return () => window.removeEventListener("resize", updateLayout);
   }, []);
 
   if (columns === null) {
     return (
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-0">
-        {logos.map((_, index) => (
-          <div
-            key={index}
-            className="h-24 flex items-center justify-center border bg-brandBlue-light  animate-pulse relative overflow-hidden"
-          >
-            <div className="w-[100px] h-[50px] bg-brandBlue-20 rounded-sm animate-pulse" />
-          </div>
-        ))}
-      </div>
+      <div className="h-[170px] w-full rounded-md bg-brandBlue-light animate-pulse" />
     );
   }
 
@@ -57,6 +50,7 @@ const BankLogosGrid: React.FC<BankLogosGridProps> = ({ logos }) => {
         const isInLastRow = index >= lastRowStartIndex;
         const isInFirstRow = index < columns;
 
+        // Bottom border
         let bottomBorderStyle: React.CSSProperties | undefined = undefined;
         if (!isInLastRow) {
           if (isFirstInRow) {
@@ -98,40 +92,55 @@ const BankLogosGrid: React.FC<BankLogosGridProps> = ({ logos }) => {
           }
         }
 
+        // Right border (solid on mobile)
         let rightBorderStyle: React.CSSProperties | undefined = undefined;
         if (!isLastInRow) {
-          if (isInFirstRow) {
+          const side = direction === "rtl" ? "left" : "right";
+
+          if (isMobile) {
             rightBorderStyle = {
               position: "absolute",
               top: 0,
-              [direction === "rtl" ? "left" : "right"]: 0,
+              [side]: 0,
               width: 1,
               height: "100%",
               pointerEvents: "none",
-              background:
-                "linear-gradient(to bottom, transparent, #AABAD9 70%)",
-            };
-          } else if (isInLastRow) {
-            rightBorderStyle = {
-              position: "absolute",
-              top: 0,
-              [direction === "rtl" ? "left" : "right"]: 0,
-              width: 1,
-              height: "100%",
-              pointerEvents: "none",
-              background: "linear-gradient(to top, transparent, #AABAD9 70%)",
+              backgroundColor: "#d1d5db", // solid gray border on mobile
             };
           } else {
-            rightBorderStyle = {
-              position: "absolute",
-              top: 0,
-              [direction === "rtl" ? "left" : "right"]: 0,
-              width: 1,
-              height: "100%",
-              pointerEvents: "none",
-              background:
-                "linear-gradient(180deg, rgba(170,186,217,0) 0%, #AABAD9 48.08%)",
-            };
+            if (isInFirstRow) {
+              rightBorderStyle = {
+                position: "absolute",
+                top: 0,
+                [side]: 0,
+                width: 1,
+                height: "100%",
+                pointerEvents: "none",
+                background:
+                  "linear-gradient(to bottom, transparent, #AABAD9 70%)",
+              };
+            } else if (isInLastRow) {
+              rightBorderStyle = {
+                position: "absolute",
+                top: 0,
+                [side]: 0,
+                width: 1,
+                height: "100%",
+                pointerEvents: "none",
+                background: "linear-gradient(to top, transparent, #AABAD9 70%)",
+              };
+            } else {
+              rightBorderStyle = {
+                position: "absolute",
+                top: 0,
+                [side]: 0,
+                width: 1,
+                height: "100%",
+                pointerEvents: "none",
+                background:
+                  "linear-gradient(180deg, rgba(170,186,217,0) 0%, #AABAD9 48.08%)",
+              };
+            }
           }
         }
 
@@ -160,7 +169,6 @@ const BankLogosGrid: React.FC<BankLogosGridProps> = ({ logos }) => {
                 zIndex: 10,
               }}
             />
-
             {rightBorderStyle && <div style={rightBorderStyle} />}
             {bottomBorderStyle && <div style={bottomBorderStyle} />}
           </div>

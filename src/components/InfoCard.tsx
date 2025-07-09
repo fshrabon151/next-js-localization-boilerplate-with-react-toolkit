@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import { FC, ReactNode } from "react";
+import { InfoPill } from "./common/atoms/InfoPill";
 import { Typography } from "./common/atoms/Typography";
 
 export interface InfoCardProps {
@@ -45,12 +46,7 @@ const InfoCard: FC<InfoCardProps> = ({
       {isDynamic &&
         (comingSoon ? (
           <div className="flex justify-end pt-4 px-4">
-            <span
-              className="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border bg-transparent border-brandBlue text-brandBlue shadow-sm hover:bg-transparent hover:text-brandBlue h-7 rounded-md px-2 text-xs cursor-context-menu"
-              aria-disabled="true"
-            >
-              Coming Soon
-            </span>
+            <InfoPill variant={"brandBlue"}>Coming Soon</InfoPill>
           </div>
         ) : (
           <div className="pt-[38px]" />

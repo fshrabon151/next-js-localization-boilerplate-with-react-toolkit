@@ -12,7 +12,10 @@ import saudiNationalBank from "@/assets/home/banks/saudiNationalBank.png";
 import sulfa from "@/assets/home/banks/sulfa.png";
 import tamam from "@/assets/home/banks/tamam.png";
 import tasheelFinance from "@/assets/home/banks/tasheelFinance.png";
+import CTAImageLg from "@/assets/home/CTAImageLg.png";
+import CTAImageMobile from "@/assets/home/CTAImageMobile.png";
 import habibiKUluKulu from "@/assets/home/habibiKUluKulu.png";
+import HandAndiPhone16ProMobile from "@/assets/home/HandAndiPhone16ProMobile.png";
 import heroMobileInHand from "@/assets/home/hero-mobile-in-hand.png";
 import iPhone16Pro from "@/assets/home/iPhone-16-Pro.png";
 import BankLogosGrid from "@/components/BankLogosGrid";
@@ -197,8 +200,9 @@ const infoCardsPlatform: InfoCardProps[] = [
 
 const page = () => {
   return (
-    <div className="space-y-8">
-      <div className="container">
+    <div className="container space-y-36">
+      {/* Hero Section Start */}
+      <div className="space-y-8">
         <div className="space-y-8 pt-16 relative overflow-hidden">
           <Typography variant="headingHero">
             Find the <br /> right financing <br /> fast and easy.
@@ -233,162 +237,218 @@ const page = () => {
                   width={1000}
                   height={1000}
                   loading="lazy"
-                  className="hidden xl:block xl:absolute xl:bottom-0 xl:right-0 xl:z-0 w-full object-cover max-w-xl xl:max-w-md xl:rounded-3xl"
+                  className="hidden xl:block xl:absolute xl:bottom-0 xl:rtl:left-0 xl:ltr:right-0 xl:z-0 w-full object-cover max-w-xl xl:max-w-md xl:rounded-3xl"
                 />
               </div>
 
               <div className="flex justify-end">
                 {/* Lazy loaded image - mobile/tablet screens */}
                 <Image
-                  src={heroMobileInHand.src}
+                  src={HandAndiPhone16ProMobile.src}
                   alt="Hero Mobile in hand"
                   width={1000}
                   height={1000}
                   loading="lazy"
-                  className="block sm:hidden md:block xl:hidden max-w-xs rounded-3xl w-full object-cover"
+                  className="block sm:hidden md:block xl:hidden max-w-sm rounded-3xl w-full object-cover"
                 />
               </div>
             </div>
           </div>
         </div>
-      </div>
-
-      <div className="container">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {infoCards.map((item, index) => (
             <InfoCard {...item} key={index} />
           ))}
         </div>
       </div>
-      <div className="container pt-20">
-        <SectionWrapper
-          heading="How It Works"
-          title="Your Loan Journey, Simplified"
-          subTitle="See how quick and simple it is to apply for financing, compare offers, and get approved — all in one place."
-          className="max-w-2xl"
-        >
-          <div className="space-y-5">
-            <div className="grid md:grid-cols-5 gap-5">
-              <InfoImageCard
-                title="Submit Request"
-                description="Complete a short form in just a few steps."
-                imageSrc={iPhone16Pro.src}
-                imageClassName="max-w-xs"
-                className="md:col-span-2"
-              />
+      {/* Hero Section End */}
 
-              <InfoImageCard
-                title="Receive & Accept Offers From Multiple Lenders"
-                description="Get real loan offers from top banks and choose the one that works best for you."
-                imageSrc={AcceptOffersFromMultipleLenders.src}
-                className="md:col-span-3"
-                imageClassName="max-w-lg"
-              />
-            </div>
-            <div className="grid md:grid-cols-7 gap-5">
-              <InfoImageCard
-                title="Wait for banks Approval"
-                description="Once you accept an offer, the bank reviews your application and shares the decision."
-                imageSrc={bankApproval.src}
-                className="md:col-span-4"
-                imageClassName="max-w-xl"
-              />
-              <InfoImageCard
-                title="Sign Agreement with Bank"
-                description="Complete your loan by signing the agreement at your chosen branch."
-                imageSrc={habibiKUluKulu.src}
-                imageClassName="max-w-lg mb-9"
-                className="md:col-span-3"
-              />
-            </div>
-          </div>
-        </SectionWrapper>
-      </div>
-      <div className="container pt-20">
-        <SectionWrapper
-          heading="Why Choose Us?"
-          title="One platform. Multiple offers. Total control."
-          subTitle="We simplify the loan process so you can apply with confidence, compare real offers from trusted banks, and move forward knowing you're in control — every step of the way."
-          className="max-w-5xl"
-        >
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {infoCardsPlatform.map((item, index) => (
-              <InfoCard {...item} key={index} minimal />
-            ))}
-          </div>
-        </SectionWrapper>
-      </div>
-      <div className="container pt-20">
-        <SectionWrapper
-          heading="Our Financial Partners"
-          title="Backed by Saudi Arabia’s Trusted Finance Institutes"
-          subTitle="We work with leading financial institutions across the Kingdom to bring you reliable loan options you can trust."
-          subTitleClassName="max-w-4xl mx-auto"
-        >
-          <BankLogosGrid
-            logos={[
-              { name: "Al Rajhi Bank", src: alrajhiBank.src },
-              { name: "Al Rajhi Bank", src: saudiNationalBank.src },
-              { name: "Al Rajhi Bank", src: riyadBank.src },
-              { name: "Al Rajhi Bank", src: bsf.src },
-              { name: "Al Rajhi Bank", src: arabNationalBank.src },
-              { name: "Al Rajhi Bank", src: bankAlBibad.src },
-              { name: "Al Rajhi Bank", src: tasheelFinance.src },
-              { name: "Al Rajhi Bank", src: aiyusur.src },
-              { name: "Al Rajhi Bank", src: emkun.src },
-              { name: "Al Rajhi Bank", src: tamam.src },
-              { name: "Al Rajhi Bank", src: sulfa.src },
-              { name: "Al Rajhi Bank", src: alimna.src },
-            ]}
-          />
-        </SectionWrapper>
-      </div>
-      <div className="container pt-20">
-        <SectionWrapper
-          heading="FAQ"
-          title="Frequently Asked Questions"
-          subTitle="We work with leading financial institutions across the Kingdom to bring you reliable loan options you can trust."
-          className="max-w-3xl"
-        >
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            <ResponsiveAccordion
-              items={[
-                {
-                  title: "How do I apply?",
-                  description:
-                    "Once your information is verified, eligible offers will be displayed on your dashboard—usually within a few minutes of completing the process.",
-                },
-                {
-                  title: "When will I get a response?",
-                  description:
-                    "Once your information is verified, eligible offers will be displayed on your dashboard—usually within a few minutes of completing the process.",
-                },
-                {
-                  title: "How do I track my application status?",
-                  description:
-                    "Once your information is verified, eligible offers will be displayed on your dashboard—usually within a few minutes of completing the process.",
-                },
-                {
-                  title:
-                    "What does it mean if an offer says “More info needed?",
-                  description:
-                    "Once your information is verified, eligible offers will be displayed on your dashboard—usually within a few minutes of completing the process.",
-                },
-                {
-                  title: "How do I sign the contract?",
-                  description:
-                    "Once your information is verified, eligible offers will be displayed on your dashboard—usually within a few minutes of completing the process.",
-                },
-                {
-                  title: "I’m facing issues with the app.",
-                  description:
-                    "Once your information is verified, eligible offers will be displayed on your dashboard—usually within a few minutes of completing the process.",
-                },
-              ]}
+      {/* How it works start */}
+      <SectionWrapper
+        heading="How It Works"
+        title="Your Loan Journey, Simplified"
+        subTitle="See how quick and simple it is to apply for financing, compare offers, and get approved — all in one place."
+        className="max-w-2xl"
+      >
+        <div className="space-y-5">
+          <div className="grid md:grid-cols-5 gap-5">
+            <InfoImageCard
+              title="Submit Request"
+              description="Complete a short form in just a few steps."
+              imageSrc={iPhone16Pro.src}
+              imageClassName="max-w-xs"
+              className="md:col-span-2"
+            />
+
+            <InfoImageCard
+              title="Receive & Accept Offers From Multiple Lenders"
+              description="Get real loan offers from top banks and choose the one that works best for you."
+              imageSrc={AcceptOffersFromMultipleLenders.src}
+              className="md:col-span-3"
+              imageClassName="max-w-lg"
             />
           </div>
-        </SectionWrapper>
+          <div className="grid md:grid-cols-7 gap-5">
+            <InfoImageCard
+              title="Wait for banks Approval"
+              description="Once you accept an offer, the bank reviews your application and shares the decision."
+              imageSrc={bankApproval.src}
+              className="md:col-span-4"
+              imageClassName="max-w-xl"
+            />
+            <InfoImageCard
+              title="Sign Agreement with Bank"
+              description="Complete your loan by signing the agreement at your chosen branch."
+              imageSrc={habibiKUluKulu.src}
+              imageClassName="max-w-lg mb-9"
+              className="md:col-span-3"
+            />
+          </div>
+        </div>
+      </SectionWrapper>
+      {/* How it works End */}
+      {/* Why choose us start */}
+      <SectionWrapper
+        heading="Why Choose Us?"
+        title="One platform. Multiple offers. Total control."
+        subTitle="We simplify the loan process so you can apply with confidence, compare real offers from trusted banks, and move forward knowing you're in control — every step of the way."
+        className="max-w-5xl"
+      >
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {infoCardsPlatform.map((item, index) => (
+            <InfoCard {...item} key={index} minimal />
+          ))}
+        </div>
+      </SectionWrapper>
+      {/* Why choose us end */}
+      {/* Our official partner start */}
+      <SectionWrapper
+        heading="Our Financial Partners"
+        title="Backed by Saudi Arabia’s Trusted Finance Institutes"
+        subTitle="We work with leading financial institutions across the Kingdom to bring you reliable loan options you can trust."
+        subTitleClassName="max-w-4xl mx-auto"
+      >
+        <BankLogosGrid
+          logos={[
+            { name: "Al Rajhi Bank", src: alrajhiBank.src },
+            { name: "Saudi National Bank", src: saudiNationalBank.src },
+            { name: "Riyad Bank", src: riyadBank.src },
+            { name: "Banque Saudi Fransi", src: bsf.src },
+            { name: "Arab National Bank", src: arabNationalBank.src },
+            { name: "Bank Albilad", src: bankAlBibad.src },
+            { name: "Tasheel Finance", src: tasheelFinance.src },
+            { name: "Aiyusur", src: aiyusur.src },
+            { name: "Emkan", src: emkun.src },
+            { name: "Tamam", src: tamam.src },
+            { name: "Sulfa", src: sulfa.src },
+            { name: "Alinma Bank", src: alimna.src },
+          ]}
+        />
+      </SectionWrapper>
+      {/* Our official partner end */}
+      {/* FAQ start */}
+      <SectionWrapper
+        heading="FAQ"
+        title="Frequently Asked Questions"
+        subTitle="We work with leading financial institutions across the Kingdom to bring you reliable loan options you can trust."
+        className="max-w-3xl"
+      >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <ResponsiveAccordion
+            items={[
+              {
+                title: "How do I apply?",
+                description:
+                  "Once your information is verified, eligible offers will be displayed on your dashboard—usually within a few minutes of completing the process.",
+              },
+              {
+                title: "When will I get a response?",
+                description:
+                  "Once your information is verified, eligible offers will be displayed on your dashboard—usually within a few minutes of completing the process.",
+              },
+              {
+                title: "How do I track my application status?",
+                description:
+                  "Once your information is verified, eligible offers will be displayed on your dashboard—usually within a few minutes of completing the process.",
+              },
+              {
+                title: "What does it mean if an offer says “More info needed?",
+                description:
+                  "Once your information is verified, eligible offers will be displayed on your dashboard—usually within a few minutes of completing the process.",
+              },
+              {
+                title: "How do I sign the contract?",
+                description:
+                  "Once your information is verified, eligible offers will be displayed on your dashboard—usually within a few minutes of completing the process.",
+              },
+              {
+                title: "I’m facing issues with the app.",
+                description:
+                  "Once your information is verified, eligible offers will be displayed on your dashboard—usually within a few minutes of completing the process.",
+              },
+            ]}
+          />
+        </div>
+      </SectionWrapper>
+      {/* FAQ end */}
+
+      {/* CTA Start */}
+      <div className="pt-7">
+        <div className="bg-[linear-gradient(269.83deg,_#6598FE_1.23%,_#0054FD_99.87%)] rounded-3xl space-y-8 relative pt-16">
+          <div className="grid md:grid-cols-3 items-center gap-0">
+            <div className="md:col-span-2 space-y-8 pb-14">
+              <div className="space-y-6 px-6 md:px-12">
+                <div className="space-y-2">
+                  <Typography
+                    className="text-[32px] sm:text-[40px] md:text-[48px] font-bold tracking-tighter"
+                    color={"white"}
+                  >
+                    Ready to take the next step?
+                  </Typography>
+
+                  <Typography
+                    className="text-[18px] sm:text-[20px] md:text-[24px] max-w-xl"
+                    color={"white"}
+                  >
+                    Complete your application in just a few steps and unlock
+                    loan options tailored to you.
+                  </Typography>
+                </div>
+                <Button size="xl" variant="outline">
+                  Apply for Finance
+                </Button>
+              </div>
+
+              {/* Lazy loaded image - XL screens only */}
+              <Image
+                src={CTAImageLg.src}
+                alt="Hero Mobile in hand"
+                width={1000}
+                height={1000}
+                loading="lazy"
+                className="hidden md:block md:absolute md:bottom-0 md:right-4 md:z-0  object-cover
+    transition-all duration-500 ease-in-out
+    opacity-0 md:opacity-100
+    scale-95 md:scale-100
+max-w-[35%] min-[1057px]:max-w-sm xl:max-w-md  "
+              />
+            </div>
+
+            <div className="justify-end flex">
+              {/* Lazy loaded image - mobile/tablet screens */}
+              <Image
+                src={CTAImageMobile.src}
+                alt="Hero Mobile in hand"
+                width={1000}
+                height={1000}
+                loading="lazy"
+                className="block sm:hidden lg:hidden max-w-xs w-full object-cover mx-auto"
+              />
+            </div>
+          </div>
+        </div>
       </div>
+      {/* CTA end */}
     </div>
   );
 };
