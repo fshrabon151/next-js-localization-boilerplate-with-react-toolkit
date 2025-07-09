@@ -32,7 +32,7 @@ export default async function LocaleLayout({
             <FontWrapper>
               <Navigation />
               <main className="pt-[72px]">{children}</main>
-              <div className="h-screen bg-slate-50"></div>
+              <div className="h-screen bg-slate-50 mt-9"></div>
             </FontWrapper>
           </StoreProvider>
         </NextIntlClientProvider>

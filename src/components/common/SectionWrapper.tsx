@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { ReactNode } from "react";
 import { Typography } from "./atoms/Typography";
@@ -19,16 +18,12 @@ export const SectionWrapper: React.FC<SectionWrapperProps> = ({
   children,
 }) => {
   return (
-    <div className="space-y-9">
+    <div className="space-y-12">
       <div className={cn(`space-y-10 text-center mx-auto`, className)}>
         <div className="flex justify-center">
-          <Button
-            className="cursor-context-menu text-brandEgyptianBlue hover:text-brandEgyptianBlue border-brandEgyptianBlue"
-            variant="solidOutline"
-            size="sm"
-          >
+          <div className="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border bg-transparent shadow-sm hover:bg-transparent h-7 rounded-md px-2 text-xs cursor-context-menu text-brandEgyptianBlue hover:text-brandEgyptianBlue border-brandEgyptianBlue">
             {heading}
-          </Button>
+          </div>
         </div>
         <div className="space-y-6">
           <Typography align="center" variant="h1">

@@ -15,12 +15,10 @@ const config: Config = {
       },
       container: {
         center: true, // Center the container by default
-        padding: {
-          DEFAULT: "1rem",
-          sm: "2rem",
-          lg: "4rem",
-          xl: "5rem",
-          "2xl": "6rem",
+        padding: "1rem",
+        screens: {
+          DEFAULT: "100%",
+          xl: "1344px",
         },
       },
       colors: {
