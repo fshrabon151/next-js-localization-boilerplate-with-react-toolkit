@@ -13,20 +13,21 @@ interface BankLogosGridProps {
 }
 
 const BankLogosGrid: React.FC<BankLogosGridProps> = ({ logos }) => {
-  const [columns, setColumns] = useState<number | null>(null);
-  const [direction, setDirection] = useState<"ltr" | "rtl">("ltr");
-  const [isMobile, setIsMobile] = useState<boolean>(false);
+  const [gridInfo, setGridInfo] = useState({
+    columns: 2,
+    isMobile: true,
+    direction: "ltr" as "ltr" | "rtl",
+  });
+  const [showBorders, setShowBorders] = useState(false);
 
   useEffect(() => {
     const updateLayout = () => {
       const width = window.innerWidth;
-      if (width >= 1024) setColumns(6);
-      else if (width >= 768) setColumns(4);
-      else if (width >= 640) setColumns(3);
-      else setColumns(2);
-
-      setIsMobile(width < 640);
-      setDirection(document?.dir === "rtl" ? "rtl" : "ltr");
+      const columns =
+        width >= 1024 ? 6 : width >= 768 ? 4 : width >= 640 ? 3 : 2;
+      const isMobile = width < 640;
+      const direction = document?.dir === "rtl" ? "rtl" : "ltr";
+      setGridInfo({ columns, isMobile, direction });
     };
 
     updateLayout();
@@ -34,12 +35,13 @@ const BankLogosGrid: React.FC<BankLogosGridProps> = ({ logos }) => {
     return () => window.removeEventListener("resize", updateLayout);
   }, []);
 
-  if (columns === null) {
-    return (
-      <div className="h-[170px] w-full rounded-md bg-brandBlue-light animate-pulse" />
-    );
-  }
+  // trigger border animation once layout is ready
+  useEffect(() => {
+    const timeout = setTimeout(() => setShowBorders(true), 100);
+    return () => clearTimeout(timeout);
+  }, []);
 
+  const { columns, isMobile, direction } = gridInfo;
   const lastRowStartIndex = Math.floor((logos.length - 1) / columns) * columns;
 
   return (
@@ -50,98 +52,74 @@ const BankLogosGrid: React.FC<BankLogosGridProps> = ({ logos }) => {
         const isInLastRow = index >= lastRowStartIndex;
         const isInFirstRow = index < columns;
 
+        const borders: React.CSSProperties[] = [];
+
         // Bottom border
-        let bottomBorderStyle: React.CSSProperties | undefined = undefined;
         if (!isInLastRow) {
+          const baseBottom: React.CSSProperties = {
+            height: 1,
+            width: "100%",
+            bottom: 0,
+            left: 0,
+            position: "absolute",
+            pointerEvents: "none",
+            opacity: showBorders ? 1 : 0,
+            transform: showBorders ? "translateY(0px)" : "translateY(4px)",
+            transition: "opacity 0.4s ease, transform 0.4s ease",
+          };
+
           if (isFirstInRow) {
-            bottomBorderStyle = {
-              position: "absolute",
-              bottom: 0,
-              left: 0,
-              width: "100%",
-              height: 1,
-              pointerEvents: "none",
+            borders.push({
+              ...baseBottom,
               background:
                 direction === "rtl"
                   ? "linear-gradient(to left, transparent, #d1d5db 70%)"
                   : "linear-gradient(to right, transparent, #d1d5db 70%)",
-            };
+            });
           } else if (isLastInRow) {
-            bottomBorderStyle = {
-              position: "absolute",
-              bottom: 0,
-              left: 0,
-              width: "100%",
-              height: 1,
-              pointerEvents: "none",
+            borders.push({
+              ...baseBottom,
               background:
                 direction === "rtl"
                   ? "linear-gradient(to right, transparent, #d1d5db 70%)"
                   : "linear-gradient(to left, transparent, #d1d5db 70%)",
-            };
+            });
           } else {
-            bottomBorderStyle = {
-              position: "absolute",
-              bottom: 0,
-              left: 0,
-              width: "100%",
-              height: 1,
-              pointerEvents: "none",
+            borders.push({
+              ...baseBottom,
               borderBottom: "1px solid #d1d5db",
-            };
+            });
           }
         }
 
-        // Right border (solid on mobile)
-        let rightBorderStyle: React.CSSProperties | undefined = undefined;
+        // Right border
         if (!isLastInRow) {
           const side = direction === "rtl" ? "left" : "right";
+          let background: string;
 
           if (isMobile) {
-            rightBorderStyle = {
-              position: "absolute",
-              top: 0,
-              [side]: 0,
-              width: 1,
-              height: "100%",
-              pointerEvents: "none",
-              backgroundColor: "#d1d5db", // solid gray border on mobile
-            };
+            background = "#d1d5db";
+          } else if (isInFirstRow) {
+            background = "linear-gradient(to bottom, transparent, #AABAD9 70%)";
+          } else if (isInLastRow) {
+            background = "linear-gradient(to top, transparent, #AABAD9 70%)";
           } else {
-            if (isInFirstRow) {
-              rightBorderStyle = {
-                position: "absolute",
-                top: 0,
-                [side]: 0,
-                width: 1,
-                height: "100%",
-                pointerEvents: "none",
-                background:
-                  "linear-gradient(to bottom, transparent, #AABAD9 70%)",
-              };
-            } else if (isInLastRow) {
-              rightBorderStyle = {
-                position: "absolute",
-                top: 0,
-                [side]: 0,
-                width: 1,
-                height: "100%",
-                pointerEvents: "none",
-                background: "linear-gradient(to top, transparent, #AABAD9 70%)",
-              };
-            } else {
-              rightBorderStyle = {
-                position: "absolute",
-                top: 0,
-                [side]: 0,
-                width: 1,
-                height: "100%",
-                pointerEvents: "none",
-                background:
-                  "linear-gradient(180deg, rgba(170,186,217,0) 0%, #AABAD9 48.08%)",
-              };
-            }
+            background =
+              "linear-gradient(180deg, rgba(170,186,217,0) 0%, #AABAD9 48.08%)";
           }
+
+          borders.push({
+            background,
+            width: 1,
+            height: "100%",
+            top: 0,
+            [side]: 0,
+            position: "absolute",
+            pointerEvents: "none",
+            opacity: showBorders ? 1 : 0,
+            transform: showBorders ? "translateX(0px)" : "translateX(4px)",
+            transition: "opacity 0.4s ease, transform 0.4s ease",
+          });
         }
 
         return (
@@ -169,8 +147,9 @@ const BankLogosGrid: React.FC<BankLogosGridProps> = ({ logos }) => {
                 zIndex: 10,
               }}
             />
-            {rightBorderStyle && <div style={rightBorderStyle} />}
-            {bottomBorderStyle && <div style={bottomBorderStyle} />}
+            {borders.map((style, i) => (
+              <div key={i} style={style} />
+            ))}
           </div>
         );
       })}
