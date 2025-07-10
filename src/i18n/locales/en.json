@@ -3,7 +3,8 @@
     "home": "Home",
     "about": "About",
     "contact": "Contact",
-    "language": "Language"
+    "language": "Language",
+    "comingSoon": "Coming Soon"
   },
   "home": {
     "title": "Welcome to Next.js 14",
@@ -16,5 +17,31 @@
     "decrement": "Decrement",
     "reset": "Reset",
     "value": "Current value: {count}"
+  },
+  "hero": {
+    "heading": "Find the<br />right financing<br />fast and easy.",
+    "paragraph": "Access real-time financing offers tailored to your needs. From the comfort of your home.",
+    "applyButton": "Apply for Finance",
+    "getApp": "Get the<br />Mobile App",
+    "infoCards": {
+      "personalFinancing": {
+        "title": "Personal Financing",
+        "description": "Simple, flexible loans to help you cover personal needs confidently."
+      },
+      "autoLeaseFinancing": {
+        "title": "Auto Lease Financing",
+        "description": "Lease your dream car with ease and tailored monthly plans."
+      },
+      "creditCard": {
+        "title": "Credit Card",
+        "description": "Turn your credit card purchases into easy monthly payments — no hassle, no surprises.",
+        "comingSoon": "Coming Soon"
+      },
+      "realEstateFinancing": {
+        "title": "Real Estate Financing",
+        "description": "Finance your future home with trusted, straightforward lending support.",
+        "comingSoon": "Coming Soon"
+      }
+    }
   }
 }

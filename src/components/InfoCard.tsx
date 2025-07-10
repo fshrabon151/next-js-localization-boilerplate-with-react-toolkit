@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { FC } from "react";
 import { InfoPill } from "./common/atoms/InfoPill";
@@ -20,6 +21,7 @@ const InfoCard: FC<InfoCardProps> = ({
   minimal = false,
 }) => {
   const isDynamic = !minimal;
+  const t = useTranslations("common");
 
   const cardClasses = cn(
     "border-2 md:border rounded-xl md:rounded-3xl flex flex-col gap-2",
@@ -52,7 +54,7 @@ const InfoCard: FC<InfoCardProps> = ({
         {isDynamic &&
           (comingSoon ? (
             <div className="flex justify-end pt-3 md:pt-4 px-4">
-              <InfoPill variant={"brandBlue"}>Coming Soon</InfoPill>
+              <InfoPill variant={"brandBlue"}>{t("comingSoon")}</InfoPill>
             </div>
           ) : (
             <div className="pt-3 md:pt-[38px]" />

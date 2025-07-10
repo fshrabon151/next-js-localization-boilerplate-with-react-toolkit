@@ -21,7 +21,8 @@ export default function LanguageToggler() {
 
   return (
     <button
-      onClick={toggleLang}
+      // onClick={toggleLang}
+      onClick={() => alert("We're working on the Arabic version. Stay tuned!")}
       className={cn(
         "appearance-none relative flex w-[100px] h-[26px] items-center justify-between rounded-full border-2 border-brandBlue overflow-hidden bg-white"
       )}

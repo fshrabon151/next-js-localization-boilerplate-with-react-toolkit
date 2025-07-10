@@ -130,7 +130,6 @@ const BankLogosGrid: React.FC<BankLogosGridProps> = ({ logos }) => {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              backgroundColor: "white",
               overflow: "hidden",
               direction,
             }}

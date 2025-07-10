@@ -5,35 +5,39 @@ import heroMobileInHand from "@/assets/home/hero-mobile-in-hand.png";
 import { Typography } from "@/components/common/atoms/Typography";
 import InfoCard from "@/components/InfoCard";
 import { Button } from "@/components/ui/button";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { infoCards } from "./constants/infoCards";
 
 export default function HeroSection() {
+  const t = useTranslations("hero");
+
   return (
     <div className="space-y-8">
       <div className="space-y-8 pt-16 relative overflow-hidden">
-        <Typography variant="headingHero">
-          Find the <br /> right financing <br /> fast and easy.
-        </Typography>
+        <Typography
+          variant="headingHero"
+          dangerouslySetInnerHTML={{ __html: t("heading") }}
+        />
 
         <div className="bg-[linear-gradient(269.83deg,_#6598FE_1.23%,_#0054FD_99.87%)] rounded-3xl space-y-8 relative pt-8">
           <div className="grid md:grid-cols-2 items-center gap-8">
             <div className="space-y-8">
               <div className="space-y-4 md:space-y-8 px-8">
                 <Typography variant="paragraphHero" color="white">
-                  Access real-time financing offers tailored to your needs. From
-                  the comfort of your home.
+                  {t("paragraph")}
                 </Typography>
                 <Button size="lg" variant="outline">
-                  Apply for Finance
+                  {t("applyButton")}
                 </Button>
               </div>
 
               <div className="flex items-center gap-2 md:gap-4 px-8 xl:pb-8">
-                <Typography color="blueGrayLight" className="capitalize">
-                  Get the <br />
-                  Mobile App
-                </Typography>
+                <Typography
+                  color="blueGrayLight"
+                  className="capitalize"
+                  dangerouslySetInnerHTML={{ __html: t("getApp") }}
+                />
                 <Image
                   src={"/images/heroAppleIcon.svg"}
                   height={58}
@@ -50,7 +54,6 @@ export default function HeroSection() {
                 />
               </div>
 
-              {/* Lazy loaded image - XL screens only */}
               <Image
                 src={heroMobileInHand.src}
                 alt="Hero Mobile in hand"
@@ -62,7 +65,6 @@ export default function HeroSection() {
             </div>
 
             <div className="flex justify-end">
-              {/* Lazy loaded image - mobile/tablet screens */}
               <Image
                 src={HandAndiPhone16ProMobile.src}
                 alt="Hero Mobile in hand"
@@ -75,9 +77,16 @@ export default function HeroSection() {
           </div>
         </div>
       </div>
+
       <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
         {infoCards.map((item, index) => (
-          <InfoCard {...item} key={index} />
+          <InfoCard
+            key={index}
+            icon={item.icon}
+            title={t(item.title)}
+            description={t(item.description)}
+            comingSoon={item.comingSoon}
+          />
         ))}
       </div>
     </div>
