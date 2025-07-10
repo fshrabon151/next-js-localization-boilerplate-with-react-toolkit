@@ -25,7 +25,7 @@ const InfoImageCard: React.FC<InfoImageCardProps> = ({
   return (
     <div
       className={cn(
-        "bg-[#F0F5FF] p-7 pb-0 rounded-3xl flex flex-col justify-between space-y-8",
+        "bg-[#F0F5FF] p-7 pb-0 rounded-3xl flex flex-col justify-between space-y-4 md:space-y-8",
         className
       )}
       style={{
@@ -38,10 +38,10 @@ const InfoImageCard: React.FC<InfoImageCardProps> = ({
       }}
     >
       <div className="space-y-2">
-        <Typography as="h2" className="text-[28px] font-medium">
+        <Typography as="h2" className="text-lg md:text-[28px] font-medium">
           {title}
         </Typography>
-        <Typography className="text-[20px] font-normal">
+        <Typography className="text-[15px] md:text-[20px] font-normal">
           {description}
         </Typography>
       </div>

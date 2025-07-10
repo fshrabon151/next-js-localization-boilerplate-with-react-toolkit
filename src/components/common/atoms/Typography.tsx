@@ -11,8 +11,9 @@ const typographyVariants = cva(
     variants: {
       variant: {
         headingHero:
-          "uppercase text-[46px] sm:text-[58px] md:text-[64px] xl:text-[82px] font-bold tracking-tight leading-[1.2]",
-        paragraphHero: "text-lg sm:text-xl md:text-2xl lg:text-[28px] max-w-md",
+          "uppercase text-[38px] sm:text-[58px] md:text-[64px] xl:text-[82px] font-bold tracking-tight leading-[1.2]",
+        paragraphHero:
+          "text-[16px] sm:text-xl md:text-2xl lg:text-[28px] max-w-md",
 
         //
         h1: "text-4xl lg:text-5xl font-extrabold tracking-tight",

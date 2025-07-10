@@ -1,5 +1,4 @@
 "use client";
-
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
@@ -35,7 +34,6 @@ const BankLogosGrid: React.FC<BankLogosGridProps> = ({ logos }) => {
     return () => window.removeEventListener("resize", updateLayout);
   }, []);
 
-  // trigger border animation once layout is ready
   useEffect(() => {
     const timeout = setTimeout(() => setShowBorders(true), 100);
     return () => clearTimeout(timeout);
@@ -92,20 +90,21 @@ const BankLogosGrid: React.FC<BankLogosGridProps> = ({ logos }) => {
           }
         }
 
-        // Right border
+        // Right border (skip for last column)
         if (!isLastInRow) {
           const side = direction === "rtl" ? "left" : "right";
           let background: string;
 
-          if (isMobile) {
-            background = "#d1d5db";
-          } else if (isInFirstRow) {
+          if (isInFirstRow) {
+            // Transparent → Solid
             background = "linear-gradient(to bottom, transparent, #AABAD9 70%)";
           } else if (isInLastRow) {
-            background = "linear-gradient(to top, transparent, #AABAD9 70%)";
-          } else {
+            // Solid → Transparent
             background =
-              "linear-gradient(180deg, rgba(170,186,217,0) 0%, #AABAD9 48.08%)";
+              "linear-gradient(to bottom, #AABAD9 30%, transparent 100%)";
+          } else {
+            // Middle rows: solid
+            background = "#AABAD9";
           }
 
           borders.push({
