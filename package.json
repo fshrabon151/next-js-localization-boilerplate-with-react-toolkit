@@ -5,6 +5,7 @@
   "packageManager": "pnpm@9.0.6",
   "scripts": {
     "dev": "next dev",
+    "https": "next dev --experimental-https -H 10.10.12.107",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",

@@ -23,10 +23,10 @@ export default function LanguageToggler() {
     <button
       onClick={toggleLang}
       className={cn(
-        "relative flex w-[110px] h-[26px] rounded-full border-2 border-brandBlue overflow-hidden bg-white"
+        "appearance-none relative flex w-[100px] h-[26px] items-center justify-between rounded-full border-2 border-brandBlue overflow-hidden bg-white"
       )}
     >
-      {/* Background slider */}
+      {/* Background highlight for active language */}
       <div
         className={cn(
           "absolute top-0 h-full w-1/2 bg-brandBlue rounded-full transition-all duration-300 z-0",
@@ -34,26 +34,24 @@ export default function LanguageToggler() {
         )}
       />
 
-      {/* Labels */}
-      <div className="relative flex w-full z-10 text-xs font-semibold">
-        <div
-          className={cn(
-            "w-1/2 flex items-center justify-center transition-colors duration-300",
-            lang === "en" ? "text-white" : "text-brandBlue",
-            "font-satoshi"
-          )}
-        >
-          English
-        </div>
-        <div
-          className={cn(
-            "w-1/2 flex items-center justify-center transition-colors duration-300",
-            lang === "ar" ? "text-white" : "text-brandBlue",
-            "font-avenir-arabic"
-          )}
-        >
-          العربية
-        </div>
+      {/* English */}
+      <div
+        className={cn(
+          "font-satoshi text-[10px] px-2 z-10 transition-colors duration-300 font-bold",
+          lang === "en" ? "text-white" : "text-brandBlue"
+        )}
+      >
+        English
+      </div>
+
+      {/* Arabic */}
+      <div
+        className={cn(
+          "font-avenir-arabic text-[10px] px-2 z-10 transition-colors duration-300 font-bold",
+          lang === "ar" ? "text-white" : "text-brandBlue"
+        )}
+      >
+        العربية
       </div>
     </button>
   );

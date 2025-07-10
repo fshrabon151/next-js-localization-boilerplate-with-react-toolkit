@@ -46,7 +46,6 @@ const typographyVariants = cva(
         muted: "text-muted-foreground",
         destructive: "text-destructive",
         accent: "text-accent-foreground",
-        // here this used
         default: "text-brandRichBlack",
         white: "text-white",
         blueGrayLight: "text-[#BED3FF]",
@@ -54,9 +53,9 @@ const typographyVariants = cva(
         brandRichBlack80: "text-brandRichBlack-80",
       },
       align: {
-        left: "text-left",
+        left: "ltr:text-left rtl:text-right",
         center: "text-center",
-        right: "text-right",
+        right: "ltr:text-right rtl:text-left",
         justify: "text-justify",
       },
     },
@@ -69,7 +68,6 @@ const typographyVariants = cva(
   }
 );
 
-// 🛠 Omit 'color' to avoid conflict
 export interface TypographyProps
   extends Omit<React.HTMLAttributes<HTMLElement>, "color">,
     VariantProps<typeof typographyVariants> {

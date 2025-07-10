@@ -89,7 +89,7 @@ const InfoCard: FC<InfoCardProps> = ({
           <Typography
             as="h4"
             color={titleColor}
-            className="text-sm md:text-[22px] font-bold"
+            className="text-sm md:text-[22px] font-bold leading-6"
           >
             {title}
           </Typography>
