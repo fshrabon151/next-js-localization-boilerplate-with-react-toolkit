@@ -1,5 +1,5 @@
 import fonts from "@/app/fonts/fonts";
-import Footer from "@/components/Footer";
+import Footer from "@/components/common/footer/Footer";
 import Navigation from "@/components/Navigation";
 import { localeDirections, locales } from "@/i18n/config";
 import { cn } from "@/lib/utils";
